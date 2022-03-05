@@ -1,0 +1,14 @@
+/* -------------------------------
+Reset all default margin & padding
+------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* -------------------------------
+Common Styles or Utilities
+------------------------------- */
+body {
+  font-family: "Ubuntu", sans-serif;
+}
