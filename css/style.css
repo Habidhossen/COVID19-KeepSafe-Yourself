@@ -23,15 +23,23 @@ body {
 /* -------------------------------
               Navbar
 ------------------------------- */
-.navbar-light .navbar-nav .nav-link {
+.navbar-nav .nav-link {
   color: #3e3e3e;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
   margin-left: 20px;
 }
-.navbar-light .navbar-nav .nav-link:hover {
+.navbar-nav .nav-link:hover {
   color: var(--color-green);
+}
+.navbar-toggler {
+  color: var(--color-blue);
+}
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: none;
 }
 /* -------------------------------
           Button Area
@@ -70,12 +78,11 @@ body {
 /* -------------------------------
 Responsiveness for Mobile Devices
 ------------------------------- */
-
 @media screen and (max-width: 576px) {
   .navbar-collapse {
     text-align: center;
   }
-  .navbar-light .navbar-nav .nav-link {
+  .navbar-nav .nav-link {
     padding: 10px;
     margin-left: 0;
   }
