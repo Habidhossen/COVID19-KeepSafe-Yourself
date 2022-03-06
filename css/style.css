@@ -12,3 +12,10 @@ Common Styles or Utilities
 body {
   font-family: "Ubuntu", sans-serif;
 }
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(241, 22, 22, 0.932);
+}
+.navbar-light .navbar-nav .nav-link:hover {
+  color: rgb(105, 255, 113);
+}
