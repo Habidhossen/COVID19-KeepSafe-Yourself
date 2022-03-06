@@ -7,15 +7,79 @@ Reset all default margin & padding
   box-sizing: border-box;
 }
 /* -------------------------------
-Common Styles or Utilities
+    Declare Styles Variable
+------------------------------- */
+:root {
+  --color-green: #26ae60;
+  --color-blue: #2471fb;
+  --color-white: #fff;
+}
+/* -------------------------------
+    Common Styles or Utilities
 ------------------------------- */
 body {
   font-family: "Ubuntu", sans-serif;
 }
-
+/* -------------------------------
+              Navbar
+------------------------------- */
 .navbar-light .navbar-nav .nav-link {
-  color: rgba(241, 22, 22, 0.932);
+  color: #3e3e3e;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: 20px;
 }
 .navbar-light .navbar-nav .nav-link:hover {
-  color: rgb(105, 255, 113);
+  color: var(--color-green);
+}
+/* -------------------------------
+          Button Area
+------------------------------- */
+/* register button */
+.register-btn {
+  padding: 8px 40px;
+  text-decoration: none;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  transition: 0.2s;
+}
+.register-btn:hover {
+  background-color: transparent;
+  color: var(--color-green);
+  border: 1px solid var(--color-green);
+}
+/* -------------------------------
+          Dropdown Area
+------------------------------- */
+.dropdown-menu {
+  background-color: var(--color-green);
+}
+.dropdown-item {
+  color: var(--color-white);
+  font-size: 16px;
+}
+.dropdown-item:focus {
+  background-color: var(--color-green);
+}
+
+/* -------------------------------
+Responsiveness for Mobile Devices
+------------------------------- */
+
+@media screen and (max-width: 576px) {
+  .navbar-collapse {
+    text-align: center;
+  }
+  .navbar-light .navbar-nav .nav-link {
+    padding: 10px;
+    margin-left: 0;
+  }
+  .dropdown-item {
+    text-align: center;
+  }
 }
