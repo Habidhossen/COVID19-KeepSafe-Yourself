@@ -88,7 +88,7 @@
         <section>
             <div class="admin-login-div">
                 <div class="admin-login-bg">
-                    <h5>Login as a admin</h5>
+                    <h5>Login </h5>
 
                     <p><input type="text" placeholder="Email" /></p>
                     <p><input type="text" placeholder="Password" /></p>
