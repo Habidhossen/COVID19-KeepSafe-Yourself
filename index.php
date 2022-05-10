@@ -24,7 +24,7 @@
             Header start here...
     ---------------------------------->
   <header>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg bg-light py-3">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">COVID19</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,7 +71,7 @@
               <a class="nav-link" href="#">Admin</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.php">Log in</a>
+              <a class="nav-link" href="login.php">Login</a>
             </li>
           </ul>
           <a class="register-btn" href="signup.php">Register</a>

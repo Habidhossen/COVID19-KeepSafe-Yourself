@@ -71,7 +71,7 @@
                             <a class="nav-link" href="#">Admin</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Log in</a>
+                            <a class="nav-link" href="#">Login</a>
                         </li>
                     </ul>
                     <a class="register-btn" href="">Register</a>

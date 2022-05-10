@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
             Header start here...
     ---------------------------------->
   <header>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg bg-light py-3">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">COVID19</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
+              <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex justify-content-center" href="#"><span>
@@ -105,10 +105,10 @@ if (isset($_POST['submit'])) {
               <a class="nav-link" href="#">Admin</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Log in</a>
+              <a class="nav-link" href="login.php">Login</a>
             </li>
           </ul>
-          <a class="register-btn" href="">Register</a>
+          <a class="register-btn" href="signup.php">Register</a>
         </div>
       </div>
     </nav>
