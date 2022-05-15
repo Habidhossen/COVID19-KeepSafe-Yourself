@@ -20,10 +20,7 @@
 </head>
 
 <body>
-  <!----------------------------------
-            Header start here...
-    ---------------------------------->
-  <header>
+  <!-- <header>
     <nav class="navbar navbar-expand-lg bg-light py-3">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">COVID19</a>
@@ -78,19 +75,23 @@
         </div>
       </div>
     </nav>
-  </header>
+  </header> -->
 
-  <!----------------------------------
-            Main start here...
-    ---------------------------------->
-  <main>
 
-  </main>
+  <!-- header starts here -->
+  <?php
+  include 'header.php';
+  ?>
+  <!-- header ends here -->
 
-  <!----------------------------------
-            Footer start here...
-    ---------------------------------->
-  <footer></footer>
+  <main></main>
+
+  <!-- header starts here -->
+  <?php
+  include 'footer.php';
+  ?>
+  <!-- header ends here -->
+
 
   <!-- Bootstrap JS CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

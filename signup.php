@@ -54,139 +54,81 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-  <!----------------------------------
-            Header start here...
-    ---------------------------------->
-  <header>
-    <nav class="navbar navbar-expand-lg bg-light py-3">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">COVID19</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd" />
-            </svg>
-          </span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="index.php">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex justify-content-center" href="#"><span>
-                  <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_4eo2289h.json" background="transparent" speed="1" style="width: 26px; height: 26px" loop autoplay></lottie-player>
-                </span>
-                Live Update</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Covid Test
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                <li><a class="dropdown-item" href="#">Covid Test</a></li>
-                <li><a class="dropdown-item" href="#">Covid Report</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Treatment
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                <li><a class="dropdown-item" href="#">Symptom</a></li>
-                <li><a class="dropdown-item" href="#">Prevention</a></li>
-                <li><a class="dropdown-item" href="#">Treatment</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Doctor's Video</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Admin</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.php">Login</a>
-            </li>
-          </ul>
-          <a class="register-btn" href="signup.php">Register</a>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <!-- header starts here -->
+  <?php
+  include 'header.php';
+  ?>
+  <!-- header ends here -->
 
-  <!----------------------------------
-            Main start here...
-    ---------------------------------->
-  <main>
-    <!-- Create new account -->
-    <section class="registration-section">
-      <div class="container bg-light rounded-3 p-5">
-        <div class="row row-cols-1 row-sm-cols-1 row-cols-md-2 row-cols-lg-2 g-3 align-items-center">
-          <!-- left part -->
-          <div class="col">
-            <div class="register-left-part p-3">
-              <h2>Create new account</h2>
-              <p>
-                Create account and access all features.
-              </p>
-              <img class="img-fluid mt-5" src="images/registration-cover.svg" alt="" />
-            </div>
+  <!-- registration page starts here -->
+  <section class="registration-section">
+    <div class="container bg-light rounded-3 p-5">
+      <div class="row row-cols-1 row-sm-cols-1 row-cols-md-2 row-cols-lg-2 g-3 align-items-center">
+        <!-- left part -->
+        <div class="col">
+          <div class="register-left-part p-3">
+            <h2>Create new account</h2>
+            <p>
+              Create account and access all features.
+            </p>
+            <img class="img-fluid mt-5" src="images/registration-cover.svg" alt="" />
           </div>
-          <!-- right part -->
-          <div class="col">
-            <div>
-              <!-- form start -->
-              <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                <div class="mb-3">
-                  <label for="" class="form-label">Full name</label>
-                  <input type="text" class="form-control form-control" name="name" required />
+        </div>
+        <!-- right part -->
+        <div class="col">
+          <div>
+            <!-- form start -->
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+              <div class="mb-3">
+                <label for="" class="form-label">Full name</label>
+                <input type="text" class="form-control form-control" name="name" required />
+              </div>
+              <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 mb-3">
+                <div class="col">
+                  <label for="" class="form-label">Email</label>
+                  <input type="email" class="form-control form-control" name="email" required />
                 </div>
-                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 mb-3">
-                  <div class="col">
-                    <label for="" class="form-label">Email</label>
-                    <input type="email" class="form-control form-control" name="email" required />
-                  </div>
-                  <div class="col">
-                    <label for="" class="form-label">Password</label>
-                    <input type="password" class="form-control form-control" name="password" required />
-                  </div>
+                <div class="col">
+                  <label for="" class="form-label">Password</label>
+                  <input type="password" class="form-control form-control" name="password" required />
                 </div>
-                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 mb-3">
-                  <div class="col">
-                    <label for="" class="form-label">NID</label>
-                    <input type="number" class="form-control form-control" name="nid" required />
-                  </div>
-                  <div class="col">
-                    <label for="" class="form-label">Date of birth</label>
-                    <input type="date" class="form-control form-control" name="dob" required />
-                  </div>
+              </div>
+              <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 mb-3">
+                <div class="col">
+                  <label for="" class="form-label">NID</label>
+                  <input type="number" class="form-control form-control" name="nid" required />
                 </div>
-                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 mb-3">
-                  <div class="col">
-                    <label for="" class="form-label">Mobile no</label>
-                    <input type="text" class="form-control form-control" name="mobile" required />
-                  </div>
-                  <div class="col">
-                    <label for="" class="form-label">City</label>
-                    <input type="text" class="form-control form-control" name="city" required />
-                  </div>
+                <div class="col">
+                  <label for="" class="form-label">Date of birth</label>
+                  <input type="date" class="form-control form-control" name="dob" required />
                 </div>
-                <div class="mb-3">
-                  <label for="exampleFormControlTextarea1" class="form-label">Address</label>
-                  <textarea name="address" required class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+              <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 mb-3">
+                <div class="col">
+                  <label for="" class="form-label">Mobile no</label>
+                  <input type="text" class="form-control form-control" name="mobile" required />
                 </div>
-                <button name="submit" type="submit" class="btn register-btn w-100">
-                  Register
-                </button>
-              </form>
-            </div>
+                <div class="col">
+                  <label for="" class="form-label">City</label>
+                  <input type="text" class="form-control form-control" name="city" required />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Address</label>
+                <textarea name="address" required class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+              <button name="submit" type="submit" class="btn register-btn w-100">
+                Register
+              </button>
+            </form>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+  <!-- registration page ends here -->
 
-    <!-- Admin Login Page -->
-  </main>
+
 
   <!-- Bootstrap JS CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

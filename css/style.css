@@ -23,6 +23,15 @@ body {
 /* -------------------------------
               Navbar
 ------------------------------- */
+.custom-navbar-brand {
+  text-decoration: none;
+  color: #3e3e3e;
+  font-size: 20px;
+  font-weight: 700;
+}
+.custom-navbar-brand:hover {
+  color: #3e3e3e;
+}
 .navbar-nav .nav-link {
   color: #3e3e3e;
   font-weight: 500;
@@ -69,7 +78,7 @@ body {
 }
 .dropdown-item {
   color: var(--color-white);
-  font-size: 16px;
+  font-size: 14px;
 }
 .dropdown-item:focus {
   background-color: var(--color-green);
