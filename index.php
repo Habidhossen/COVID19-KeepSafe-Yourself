@@ -68,7 +68,7 @@
               <a class="nav-link" href="#">Doctor's Video</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Admin</a>
+              <a class="nav-link" href="admin/admin_login.php">Admin</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="login.php">Login</a>
