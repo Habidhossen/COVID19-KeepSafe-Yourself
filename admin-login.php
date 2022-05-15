@@ -87,13 +87,12 @@
     <!-- Login Page -->
     <section>
         <div class="col-4 mx-auto login-bg">
-            <h1 class="login-title">Login to your account</h1>
+            <h1 class="login-title">Admin Login</h1>
             <hr>
             <form action="">
                 <input type="email" name="email" placeholder="Email address" required class="form-control form-control mb-3 mt-4" />
                 <input type="password" name="password" placeholder="Password" required class="form-control form-control mb-4" />
-                <button type="submit" class="btn register-btn w-100">Login</button>
-                <p class="form-text">Don't have an account? <a href="signup.php">Register now</a></p>
+                <button type="submit" class="btn login-btn w-100">Login</button>
             </form>
         </div>
     </section>

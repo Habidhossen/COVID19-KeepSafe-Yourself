@@ -95,13 +95,11 @@ body {
   margin-top: 20px;
 }
 .login-btn {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  padding: 6px;
+  padding: 8px 40px;
   text-decoration: none;
   background-color: var(--color-blue);
   color: var(--color-white);
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
   border-radius: 50px;
   border: 1px solid transparent;
