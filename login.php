@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Title -->
     <title>COVID19 - KeepSafe Yourself</title>
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/955a413869.js" crossorigin="anonymous"></script>
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <!-- My CSS -->
@@ -83,24 +83,21 @@
     <!----------------------------------
             Main start here...
     ---------------------------------->
-    <main>
-        <!-- Admin Login Page -->
-        <section>
-            <div class="admin-login-div">
-                <div class="admin-login-bg">
-                    <h5>Login </h5>
 
-                    <p><input type="text" placeholder="Email" /></p>
-                    <p><input type="text" placeholder="Password" /></p>
-                    <button class="login-btn w-100" type="submit">
-                        Login<span class="ms-1"><i class="fa-solid fa-arrow-right-long"></i></span>
-                    </button>
-                </div>
-            </div>
-        </section>
+    <!-- Login Page -->
+    <section>
+        <div class="col-4 mx-auto login-bg">
+            <h1 class="login-title">Login to your account</h1>
+            <hr>
+            <form action="">
+                <input type="email" name="email" placeholder="Email address" required class="form-control form-control mb-3 mt-4" />
+                <input type="password" name="password" placeholder="Password" required class="form-control form-control mb-4" />
+                <button type="submit" class="btn register-btn w-100">Login</button>
+                <p class="form-text">Don't have an account? <a href="signup.php">Register now</a></p>
+            </form>
+        </div>
+    </section>
 
-        <!-- Admin Login Page -->
-    </main>
 
     <!----------------------------------
             Footer start here...

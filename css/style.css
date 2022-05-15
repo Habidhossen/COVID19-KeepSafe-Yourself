@@ -18,7 +18,7 @@ Reset all default margin & padding
     Common Styles or Utilities
 ------------------------------- */
 body {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 /* -------------------------------
               Navbar
@@ -78,17 +78,21 @@ body {
 /* -------------------------------
         Admin Login Page
 ------------------------------- */
-.admin-login-div {
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.admin-login-bg {
-  width: 400px;
-  padding: 60px;
-  background-color: #eeefef;
+.login-bg {
+  margin-top: 80px;
+  padding: 40px 30px;
+  background-color: #f9f9f9;
   border-radius: 10px;
+}
+.login-title {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+}
+.form-text {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
 }
 .login-btn {
   text-transform: uppercase;
