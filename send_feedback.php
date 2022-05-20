@@ -4,17 +4,36 @@ include 'db_connection.php';
 session_start();
 
 // declare variable
-$userid = '';
-$username = '';
-$useremail = '';
+$patientName = '';
+$patientEmail = '';
 
+// get data from db
 $sql = "SELECT * FROM `user_tbl` WHERE Email = '$_SESSION[userEmail]'";
 $result = mysqli_query($connection, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
-    $userid = $row['Id'];
-    $username = $row['Name'];
-    $useremail = $row['Email'];
+    $patientName = $row['Name'];
+    $patientEmail = $row['Email'];
 }
+
+// send feedback
+if (isset($_POST['send_feedback'])) {
+
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+    $sql = "INSERT INTO `feedback_tbl`(`Name`, `Email`, `Message`) VALUES ('$name','$email','$message')";
+    $result = mysqli_query($connection, $sql);
+
+    if ($result) {
+        $_SESSION['bookRequestAlert'] = 'Send Successfully!';
+        header("location: send_feedback.php");
+        exit;
+    } else {
+        echo 'Something went wrong!';
+    }
+}
+
 
 // when User press backbutton after logout then he/she cannot access again this page without Login and this condition also use for security purpose.
 if (!isset($_SESSION['userEmail'])) {
@@ -50,7 +69,7 @@ if (!isset($_SESSION['userEmail'])) {
 
 
     <!-- ======= Header starts here ======= -->
-    <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0 border-bottom header-design">
+    <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0">
         <a href="user_dashboard.php" class="d-flex align-items-center mb-3 mb-lg-0 text-dark text-decoration-none">
             <span class="navbar-brand mb-0 h1 text-success"><b>Covid-19 Keepsafe Yourself</b></span>
         </a>
@@ -88,8 +107,8 @@ if (!isset($_SESSION['userEmail'])) {
         <?php
         if (isset($_SESSION['bookRequestAlert'])) {
         ?>
-            <div class="alert alert-light alert-dismissible fade show small" role="alert">
-                <strong>Book Request</strong>
+            <div class="alert alert-dark alert-dismissible fade show small" role="alert">
+                <strong>Message</strong>
                 <?php echo $_SESSION['bookRequestAlert'];
                 unset($_SESSION['bookRequestAlert']); ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -98,34 +117,27 @@ if (!isset($_SESSION['userEmail'])) {
         }
         ?>
 
-
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
-            <div class="form-group row align-items-center text-light">
+            <div class="form-group row align-items-center text-light mt-2">
                 <div>
-                    <input name="name" disabled class="form-control alert-success" value="<?php echo $userid; ?>">
+                    <input name="name" class="form-control alert-success" value="<?php echo $patientName; ?>">
                 </div>
             </div>
 
             <div class="form-group row align-items-center text-light mt-2">
                 <div>
-                    <input name="name" disabled class="form-control alert-success" value="<?php echo $username; ?>">
-                </div>
-            </div>
-
-            <div class="form-group row align-items-center text-light mt-2">
-                <div>
-                    <input name="name" disabled class="form-control alert-success" value="<?php echo $useremail; ?>">
+                    <input name="email" class="form-control alert-success" value="<?php echo $patientEmail; ?>">
                 </div>
             </div>
 
             <div class="mt-2">
-                <textarea name="address" placeholder="Your messages" required class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea name="message" rows="5" placeholder="Your messages" required class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
 
 
             <div class="mt-4">
-                <button name="send-feedback" type="submit" class="w-100 register-btn">Send Message</button>
+                <button name="send_feedback" type="submit" class="w-100 register-btn">Send Message</button>
             </div>
         </form>
 
