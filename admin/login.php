@@ -1,3 +1,44 @@
+<?php
+
+session_start();
+include '../db_connection.php';
+
+if (isset($_POST['login'])) {
+
+    $email = $_POST['email']; //input-email stored in variable
+    $password = $_POST['password']; ////input-password stored in variable
+
+    $sql = "SELECT * FROM `admin_tbl` WHERE Email = '$email'";
+    $result = mysqli_query($connection, $sql);
+
+    $num = mysqli_num_rows($result);
+    if ($num == 1) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            if ($_POST['password'] === $row['Password']) {
+
+                $_SESSION['adminId'] = $row['Id'];
+                $_SESSION['adminName'] = $row['Name'];
+                $_SESSION['adminEmail'] = $row['Email'];
+
+                header("location: dashboard.php");
+                exit;
+            } else {
+                // echo 'Wrong password';
+                $_SESSION['wrongPasswordAlert'] = 'Wrong Password!';
+                header("location: login.php");
+                exit;
+            }
+        }
+    } else {
+        // echo 'Invalid email';
+        $_SESSION['invalidEmailAlert'] = 'Invalid Email!';
+        header("location: login.php");
+        exit;
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +63,7 @@
 <body>
     <!-- header starts here -->
     <?php
-    include '../header.php';
+    include 'header.php';
     ?>
     <!-- header ends here -->
 
@@ -31,11 +72,35 @@
         <div class="col-4 mx-auto login-bg">
             <h1 class="login-title">Admin Login</h1>
             <hr>
-            <form action="">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <input type="email" name="email" placeholder="Email address" required class="form-control form-control mb-3 mt-4" />
                 <input type="password" name="password" placeholder="Password" required class="form-control form-control mb-4" />
-                <button type="submit" class="btn login-btn w-100">Login</button>
+                <button name="login" type="submit" class="btn login-btn w-100">Login</button>
             </form>
+
+            <!-- PHP Coding for showing alert -->
+            <?php
+            if (isset($_SESSION['wrongPasswordAlert'])) {
+            ?>
+                <br>
+                <div class="alert alert-danger alert-dismissible fade show small" role="alert">
+                    <?php echo $_SESSION['wrongPasswordAlert'];
+                    unset($_SESSION['wrongPasswordAlert']); ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php
+            }
+            if (isset($_SESSION['invalidEmailAlert'])) {
+            ?>
+                <br>
+                <div class="alert alert-warning alert-dismissible fade show small" role="alert">
+                    <?php echo $_SESSION['invalidEmailAlert'];
+                    unset($_SESSION['invalidEmailAlert']); ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php
+            }
+            ?>
         </div>
     </section>
 

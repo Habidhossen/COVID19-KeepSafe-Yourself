@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-light py-3">
         <div class="container-fluid">
-            <a class="custom-navbar-brand" href="index.php">COVID-19</a>
+            <a class="custom-navbar-brand" href="../index.php">COVID-19</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link" href="../index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link d-flex justify-content-center" href="#"><span>
@@ -43,10 +43,10 @@
                         <a class="nav-link" href="#">Doctor's Video</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin/login.php">Admin</a>
+                        <a class="nav-link" href="login.php">Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
+                        <a class="nav-link" href="../login.php">Login</a>
                     </li>
                 </ul>
                 <a class="register-btn" href="signup.php">Register</a>

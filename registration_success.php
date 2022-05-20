@@ -20,12 +20,6 @@
 </head>
 
 <body>
-    <!-- header starts here -->
-    <?php
-    include 'header.php';
-    ?>
-    <!-- header ends here -->
-
 
     <!-- registration success starts here -->
     <div class="registration-success-bg">

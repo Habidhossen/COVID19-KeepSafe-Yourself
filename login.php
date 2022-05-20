@@ -1,3 +1,50 @@
+<?php
+
+session_start();
+include 'db_connection.php';
+
+if (isset($_POST['login'])) {
+
+    $email = $_POST['email']; //input-email stored in variable
+    $password = $_POST['password']; ////input-password stored in variable
+
+    $sql = "SELECT * FROM `user_tbl` WHERE Email = '$email'";
+    $result = mysqli_query($connection, $sql);
+
+    $num = mysqli_num_rows($result);
+    if ($num == 1) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            if ($_POST['password'] === $row['Password']) {
+
+                $_SESSION['userId'] = $row['Id'];
+                $_SESSION['userName'] = $row['Name'];
+                $_SESSION['userEmail'] = $row['Email'];
+
+                header("location: user_dashboard.php");
+                exit;
+            } else {
+                // echo 'Wrong password';
+                // $wrongPassword = '';
+                $_SESSION['wrongPasswordAlert'] = 'Wrong Password!';
+                header("location: login.php");
+                exit;
+            }
+        }
+    } else {
+        // echo 'Invalid email';
+        // $wrongEmail = '';
+        $_SESSION['invalidEmailAlert'] = 'Invalid Email!';
+        header("location: login.php");
+        exit;
+    }
+    // if User already logged in, then there in no need to login again. He/she will be able to access direct userDashboard file.
+    if (isset($_SESSION['userEmail'])) {
+        header("location: user_dashboard.php");
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,12 +79,36 @@
         <div class="col-4 mx-auto login-bg">
             <h1 class="login-title">Login to your account</h1>
             <hr>
-            <form action="">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <input type="email" name="email" placeholder="Email address" required class="form-control form-control mb-3 mt-4" />
                 <input type="password" name="password" placeholder="Password" required class="form-control form-control mb-4" />
-                <button type="submit" class="btn register-btn w-100">Login</button>
+                <button name="login" type="submit" class="btn register-btn w-100">Login</button>
                 <p class="form-text">Don't have an account? <a href="signup.php">Register now</a></p>
             </form>
+
+            <!-- PHP Coding for showing alert -->
+            <?php
+            if (isset($_SESSION['wrongPasswordAlert'])) {
+            ?>
+                <br>
+                <div class="alert alert-danger alert-dismissible fade show small" role="alert">
+                    <?php echo $_SESSION['wrongPasswordAlert'];
+                    unset($_SESSION['wrongPasswordAlert']); ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php
+            }
+            if (isset($_SESSION['invalidEmailAlert'])) {
+            ?>
+                <br>
+                <div class="alert alert-warning alert-dismissible fade show small" role="alert">
+                    <?php echo $_SESSION['invalidEmailAlert'];
+                    unset($_SESSION['invalidEmailAlert']); ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php
+            }
+            ?>
         </div>
     </section>
 
