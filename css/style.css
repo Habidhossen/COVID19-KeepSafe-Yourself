@@ -160,6 +160,24 @@ body {
 }
 
 /* -------------------------------
+User Dashboard Card
+------------------------------- */
+.banner-container {
+  background-color: var(--color-green);
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.custom-user-card {
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  border-radius: 10px;
+  background: #f5eef8;
+}
+
+/* -------------------------------
 Responsiveness for Mobile Devices
 ------------------------------- */
 @media screen and (max-width: 576px) {
