@@ -68,7 +68,7 @@ if (!isset($_SESSION['userEmail'])) {
 
         <div class="banner-container">
 
-            <h3 class="m-3 text-center text-white">Hey! <strong><?php echo $_SESSION['userName']; ?></strong></h3>
+            <h3 class="mb-2 text-center text-white">Hey, <strong><?php echo $_SESSION['userName']; ?></strong></h3>
             <p class="mb-4 text-center text-white">Welcome to your dashboard. Now you can access all the features of our application.<br />Keepsafe Yourself</p>
 
             <div class="w-50 mx-auto">
@@ -92,10 +92,18 @@ if (!isset($_SESSION['userEmail'])) {
     <div class="container">
         <div class="row row-cols-1 row-cols-md-3 mt-2 g-4 justify-content-center">
             <div class="col">
-                <div class="card-body custom-user-card p-4">
-                    <h5 class="card-title text-success"><strong>Send Message</strong></h5>
-                    <p class="card-text small">If you have any questions, Please send us feedback!</p>
-                    <a href="send_feedback.php" class="btn btn-success btn-sm d-flex justify-content-center">Open</a>
+                <div class="card-body custom-user-card p-4 text-center">
+                    <h5 class="card-title text-success"><strong>Covid Test</strong></h5>
+                    <p class="card-text small mb-4">We are providing fast Covid-19 testing at Home</p>
+                    <a href="send_feedback.php" class="register-btn">Continue</a>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card-body custom-user-card p-4 text-center">
+                    <h5 class="card-title text-success"><strong>Message or Feedback</strong></h5>
+                    <p class="card-text small mb-4">If you have any questions, Please send us feedback!</p>
+                    <a href="send_feedback.php" class="register-btn">Continue</a>
                 </div>
             </div>
         </div>
