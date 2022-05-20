@@ -100,7 +100,7 @@
                 <div class="left">
                     <h1>Dashboard</h1>
                     <p><?php /*set default timezone as Asia/Dhaka -->*/ date_default_timezone_set("Asia/Dhaka"); /*now print current day & date -->*/
-                        echo "Today is " . date("l, F j, Y"); ?></>
+                        echo date("l, F j, Y"); ?></>
                     </p>
                 </div>
                 <a href="#" class="btn-download">

@@ -42,7 +42,7 @@ if (!isset($_SESSION['userEmail'])) {
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
 
             <li><a class="nav-link px-2 link-success"><strong><?php /*set default timezone as Asia/Dhaka -->*/ date_default_timezone_set("Asia/Dhaka"); /*now print current day & date -->*/
-                                                                echo "Today is " . date("l, F j, Y"); ?></strong></a></li>
+                                                                echo date("l, F j, Y"); ?></strong></a></li>
 
         </ul>
         <div class="col-md-3 text-end">

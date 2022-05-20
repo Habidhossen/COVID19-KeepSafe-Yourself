@@ -159,11 +159,11 @@ if (!isset($_SESSION['adminEmail'])) {
                     <div class="form-group row align-items-center">
                         <label class="col-4">Name:</label>
                         <div class="col-8">
-                            <input name="name" class="form-control alert-info" value="<?php echo $adminname; ?>">
+                            <input name="name" class="form-control alert-primary" value="<?php echo $adminname; ?>">
                         </div>
                     </div>
                     <div class="mt-3">
-                        <button name="update_profile" type="submit" class="w-100 btn btn-info mt-2">Update Profile</button>
+                        <button name="update_profile" type="submit" class="w-100 btn btn-primary mt-2">Update Profile</button>
                     </div>
                 </form>
 

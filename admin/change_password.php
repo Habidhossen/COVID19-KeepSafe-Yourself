@@ -174,23 +174,23 @@ if (!isset($_SESSION['adminEmail'])) {
                     <div class="form-group row align-items-center">
                         <label class="col-4">Current Password:</label>
                         <div class="col-8">
-                            <input name="current_password" type="password" class="form-control alert-info" required value="">
+                            <input name="current_password" type="password" class="form-control alert-primary" required value="">
                         </div>
                     </div>
                     <div class="form-group row align-items-center mt-2">
                         <label class="col-4">New Password:</label>
                         <div class="col-8">
-                            <input name="new_password" type="password" class="form-control alert-info" required value="">
+                            <input name="new_password" type="password" class="form-control alert-primary" required value="">
                         </div>
                     </div>
                     <div class="form-group row align-items-center mt-2">
                         <label class="col-4">Re-type new Password:</label>
                         <div class="col-8">
-                            <input name="confirm_new_password" type="password" class="form-control alert-info" required value="">
+                            <input name="confirm_new_password" type="password" class="form-control alert-primary" required value="">
                         </div>
                     </div>
                     <div class="mt-3">
-                        <button name="change_password" type="submit" class="w-100 btn btn-info mt-2">Change Password</button>
+                        <button name="change_password" type="submit" class="w-100 btn btn-primary mt-2">Change Password</button>
                     </div>
                 </form>
 

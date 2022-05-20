@@ -130,14 +130,14 @@ if (!isset($_SESSION['adminEmail'])) {
                     <div class="form-group row align-items-center">
                         <label class="col-4">Name:</label>
                         <div class="col-8">
-                            <input name="name" disabled class="form-control alert-success" value="<?php echo $adminname; ?>">
+                            <input name="name" disabled class="form-control alert-primary" value="<?php echo $adminname; ?>">
                         </div>
                     </div>
 
                     <div class="form-group row align-items-center mt-2">
                         <label class="col-4">Email:</label>
                         <div class="col-8">
-                            <input name="name" disabled class="form-control alert-success" value="<?php echo $adminemail; ?>">
+                            <input name="name" disabled class="form-control alert-primary" value="<?php echo $adminemail; ?>">
                         </div>
                     </div>
                 </form>
