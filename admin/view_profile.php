@@ -1,3 +1,27 @@
+<?php
+
+include '../db_connection.php';
+session_start();
+
+// declare variable
+$adminname = '';
+$adminemail = '';
+
+$sql = "SELECT * FROM `admin_tbl` WHERE Email = '$_SESSION[adminEmail]'";
+$result = mysqli_query($connection, $sql);
+while ($row = mysqli_fetch_assoc($result)) {
+    $adminname = $row['Name'];
+    $adminemail = $row['Email'];
+}
+
+// when User press backbutton after logout then he/she cannot access again this page without Login and this condition also use for security purpose.
+if (!isset($_SESSION['adminEmail'])) {
+    header("location: login.php");
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,42 +64,32 @@
 
         <!-- MAIN -->
         <main>
-            <div class="head-title">
-                <div class="left">
-                    <h1>Dashboard</h1>
-                    <p><?php /*set default timezone as Asia/Dhaka -->*/ date_default_timezone_set("Asia/Dhaka"); /*now print current day & date -->*/
-                        echo "Today is " . date("l, F j, Y"); ?></>
-                    </p>
-                </div>
-                <a href="#" class="btn-download">
-                    <i class="bx bxs-cloud-download"></i>
-                    <span class="text">Generate Report</span>
-                </a>
-            </div>
 
-            <ul class="box-info">
-                <li>
-                    <i class="bx bxs-group"></i>
-                    <span class="text">
-                        <h3>0</h3>
-                        <p>Registered Patient</p>
-                    </span>
-                </li>
-                <li>
-                    <i class="bx bxs-check-circle"></i>
-                    <span class="text">
-                        <h3>0</h3>
-                        <p>Total Test</p>
-                    </span>
-                </li>
-                <li>
-                    <i class="bx bxs-report"></i>
-                    <span class="text">
-                        <h3>0</h3>
-                        <p>Sample Test</p>
-                    </span>
-                </li>
-            </ul>
+            <!-- ======= Admin-View-Profile starts here======= -->
+            <div class="custom-profile-card">
+
+                <h5 class="mb-3 fw-bold">My Profile</h5>
+                <hr class="my-3">
+                <form>
+                    <div class="form-group row align-items-center">
+                        <label class="col-4">Name:</label>
+                        <div class="col-8">
+                            <input name="name" disabled class="form-control alert-success" value="<?php echo $adminname; ?>">
+                        </div>
+                    </div>
+
+                    <div class="form-group row align-items-center mt-2">
+                        <label class="col-4">Email:</label>
+                        <div class="col-8">
+                            <input name="name" disabled class="form-control alert-success" value="<?php echo $adminemail; ?>">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <!-- ======= Admin-View-Profile ends here======= -->
+
+
         </main>
         <!-- MAIN -->
     </section>
