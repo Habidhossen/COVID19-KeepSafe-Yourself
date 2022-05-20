@@ -181,10 +181,20 @@ User Dashboard Card
   border-radius: 10px;
   padding: 50px;
   width: 60%;
+  margin: 50px auto 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+.send-feedback-card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 50px;
+  width: 50%;
   margin: 70px auto 0 auto;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
+
 /* -------------------------------
 Responsiveness for Mobile Devices
 ------------------------------- */

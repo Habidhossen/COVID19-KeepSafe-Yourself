@@ -95,7 +95,7 @@ if (!isset($_SESSION['userEmail'])) {
                 <div class="card-body custom-user-card p-4">
                     <h5 class="card-title text-success"><strong>Send Message</strong></h5>
                     <p class="card-text small">If you have any questions, Please send us feedback!</p>
-                    <a href="book_request.php" class="btn btn-success btn-sm d-flex justify-content-center">Open</a>
+                    <a href="send_feedback.php" class="btn btn-success btn-sm d-flex justify-content-center">Open</a>
                 </div>
             </div>
         </div>

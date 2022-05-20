@@ -4,15 +4,22 @@ include 'db_connection.php';
 session_start();
 
 // declare variable
-$username = '';
-$usermobile = '';
-$useraddress = '';
+$patientName = '';
+$patientMobile = '';
+$patientNID = '';
+$patientDOB = '';
+$patientAddress = '';
+$patientCity = '';
+
 $sql = "SELECT * FROM `user_tbl` WHERE Email = '$_SESSION[userEmail]'";
 $result = mysqli_query($connection, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
-    $username = $row['Name'];
-    $usermobile = $row['Mobile'];
-    $useraddress = $row['Address'];
+    $patientName = $row['Name'];
+    $patientMobile = $row['Mobile'];
+    $patientNID = $row['NID'];
+    $patientDOB = $row['DOB'];
+    $patientAddress = $row['Address'];
+    $patientCity = $row['City'];
 }
 
 // update profile
@@ -20,9 +27,12 @@ if (isset($_POST['update_profile'])) {
 
     $name = $_POST['name'];
     $mobile = $_POST['mobile'];
+    $nid = $_POST['nid'];
+    $dob = $_POST['dob'];
     $address = $_POST['address'];
+    $city = $_POST['city'];
 
-    $sql = "UPDATE `user_tbl` SET Name ='$name', Mobile ='$mobile', Address ='$address' WHERE Email = '$_SESSION[userEmail]'";
+    $sql = "UPDATE `user_tbl` SET Name ='$name', Mobile ='$mobile', NID ='$nid', DOB ='$dob', Address ='$address', City ='$city' WHERE Email = '$_SESSION[userEmail]'";
     $result = mysqli_query($connection, $sql);
 
     if ($result) {
@@ -117,21 +127,42 @@ if (!isset($_SESSION['userId'])) {
             <div class="form-group row align-items-center">
                 <label class="col-4">Name:</label>
                 <div class="col-8">
-                    <input name="name" class="form-control alert-success" value="<?php echo $username; ?>">
+                    <input name="name" class="form-control alert-success" value="<?php echo $patientName; ?>">
                 </div>
             </div>
 
             <div class="form-group row align-items-center mt-2">
                 <label class="col-4">Mobile No:</label>
                 <div class="col-8">
-                    <input name="mobile" class="form-control alert-success" value="<?php echo $usermobile; ?>">
+                    <input name="mobile" class="form-control alert-success" value="<?php echo $patientMobile; ?>">
+                </div>
+            </div>
+
+            <div class="form-group row align-items-center mt-2">
+                <label class="col-4">NID or Birth Certificate:</label>
+                <div class="col-8">
+                    <input type="number" name="nid" class="form-control alert-success" value="<?php echo $patientNID; ?>">
+                </div>
+            </div>
+
+            <div class="form-group row align-items-center mt-2">
+                <label class="col-4">Date of Birth:</label>
+                <div class="col-8">
+                    <input type="date" name="dob" class="form-control alert-success" value="<?php echo $patientDOB; ?>">
                 </div>
             </div>
 
             <div class="form-group row align-items-center mt-2">
                 <label class="col-4">Address:</label>
                 <div class="col-8">
-                    <input name="address" class="form-control alert-success" value="<?php echo $useraddress; ?>">
+                    <input name="address" class="form-control alert-success" value="<?php echo $patientAddress; ?>">
+                </div>
+            </div>
+
+            <div class="form-group row align-items-center mt-2">
+                <label class="col-4">City:</label>
+                <div class="col-8">
+                    <input name="city" class="form-control alert-success" value="<?php echo $patientCity; ?>">
                 </div>
             </div>
             <div class="mt-3">

@@ -4,26 +4,16 @@ include 'db_connection.php';
 session_start();
 
 // declare variable
-$patientId = '';
-$patientName = '';
-$patientEmail = '';
-$patientMobile = '';
-$patientNID = '';
-$patientDOB = '';
-$patientAddress = '';
-$patientCity = '';
+$userid = '';
+$username = '';
+$useremail = '';
 
 $sql = "SELECT * FROM `user_tbl` WHERE Email = '$_SESSION[userEmail]'";
 $result = mysqli_query($connection, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
-    $patientId = $row['Id'];
-    $patientName = $row['Name'];
-    $patientEmail = $row['Email'];
-    $patientMobile = $row['Mobile'];
-    $patientNID = $row['NID'];
-    $patientDOB = $row['DOB'];
-    $patientAddress = $row['Address'];
-    $patientCity = $row['City'];
+    $userid = $row['Id'];
+    $username = $row['Name'];
+    $useremail = $row['Email'];
 }
 
 // when User press backbutton after logout then he/she cannot access again this page without Login and this condition also use for security purpose.
@@ -31,8 +21,9 @@ if (!isset($_SESSION['userEmail'])) {
     header("location: index.php");
 }
 
-?>
 
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +50,7 @@ if (!isset($_SESSION['userEmail'])) {
 
 
     <!-- ======= Header starts here ======= -->
-    <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0">
+    <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0 border-bottom header-design">
         <a href="user_dashboard.php" class="d-flex align-items-center mb-3 mb-lg-0 text-dark text-decoration-none">
             <span class="navbar-brand mb-0 h1 text-success"><b>Covid-19 Keepsafe Yourself</b></span>
         </a>
@@ -85,71 +76,66 @@ if (!isset($_SESSION['userEmail'])) {
     <!-- ======= Header ends here======= -->
 
 
-    <!-- ======= View-Profile starts here======= -->
-    <div class="container col-lg-6 col-md-8 col-sm-8 custom-profile-card">
 
-        <h5 class="mb-3 fw-bold">Patient Profile</h5>
+
+    <!-- ======= Send-Feedback starts here======= -->
+    <div class="send-feedback-card">
+
+        <h5 class="mb-3 fw-bold">Message or Feedback</h5>
         <hr class="my-3">
-        <form>
-            <div class="form-group row align-items-center mt-2">
-                <label class="col-4">Patient Id:</label>
-                <div class="col-8">
-                    <input name="name" disabled class="form-control alert-success" value="<?php echo $patientId; ?>">
+
+        <!-- PHP Coding for showing alert -->
+        <?php
+        if (isset($_SESSION['bookRequestAlert'])) {
+        ?>
+            <div class="alert alert-light alert-dismissible fade show small" role="alert">
+                <strong>Book Request</strong>
+                <?php echo $_SESSION['bookRequestAlert'];
+                unset($_SESSION['bookRequestAlert']); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php
+        }
+        ?>
+
+
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+
+            <div class="form-group row align-items-center text-light">
+                <div>
+                    <input name="name" disabled class="form-control alert-success" value="<?php echo $userid; ?>">
                 </div>
             </div>
 
-            <div class="form-group row align-items-center mt-2">
-                <label class="col-4">Name:</label>
-                <div class="col-8">
-                    <input name="name" disabled class="form-control alert-success" value="<?php echo $patientName; ?>">
+            <div class="form-group row align-items-center text-light mt-2">
+                <div>
+                    <input name="name" disabled class="form-control alert-success" value="<?php echo $username; ?>">
                 </div>
             </div>
 
-            <div class="form-group row align-items-center mt-2">
-                <label class="col-4">Email:</label>
-                <div class="col-8">
-                    <input name="name" disabled class="form-control alert-success" value="<?php echo $patientEmail; ?>">
+            <div class="form-group row align-items-center text-light mt-2">
+                <div>
+                    <input name="name" disabled class="form-control alert-success" value="<?php echo $useremail; ?>">
                 </div>
             </div>
 
-            <div class="form-group row align-items-center mt-2">
-                <label class="col-4">Mobile No:</label>
-                <div class="col-8">
-                    <input name="name" disabled class="form-control alert-success" value="<?php echo $patientMobile; ?>">
-                </div>
+            <div class="mt-2">
+                <textarea name="address" placeholder="Your messages" required class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
 
-            <div class="form-group row align-items-center mt-2">
-                <label class="col-4">NID or Birth Certificate:</label>
-                <div class="col-8">
-                    <input name="name" disabled class="form-control alert-success" value="<?php echo $patientNID; ?>">
-                </div>
-            </div>
 
-            <div class="form-group row align-items-center mt-2">
-                <label class="col-4">Date of Birth</label>
-                <div class="col-8">
-                    <input type="date" name="name" disabled class="form-control alert-success" value="<?php echo $patientDOB; ?>">
-                </div>
-            </div>
-
-            <div class="form-group row align-items-center mt-2">
-                <label class="col-4">Address:</label>
-                <div class="col-8">
-                    <input name="name" disabled class="form-control alert-success" value="<?php echo $patientAddress; ?>">
-                </div>
-            </div>
-
-            <div class="form-group row align-items-center mt-2">
-                <label class="col-4">City:</label>
-                <div class="col-8">
-                    <input name="name" disabled class="form-control alert-success" value="<?php echo $patientCity; ?>">
-                </div>
+            <div class="mt-4">
+                <button name="send-feedback" type="submit" class="w-100 register-btn">Send Message</button>
             </div>
         </form>
 
     </div>
-    <!-- ======= View-Profile ends here======= -->
+    <!-- ======= Send-Feedback ends here======= -->
+
+
+
+
+
 
 
 
