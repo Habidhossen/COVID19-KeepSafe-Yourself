@@ -115,19 +115,19 @@ if (!isset($_SESSION['adminEmail'])) {
         <!-- MAIN -->
         <main>
             <div>
-                <h3>Message and Feedback</h3>
+                <h3 class="dashboard-item-title">Message and Feedback</h3>
                 <div>
                     <!-- ======= DataTable and all action starts here======= -->
                     <div class="container custom-datatable-card mb-4">
 
                         <!-- showing action alert! PHP -->
                         <?php
-                        if (isset($_SESSION['bookReqDeleteAlert'])) {
+                        if (isset($_SESSION['feedbackDeleteAlert'])) {
                         ?>
                             <div class="alert alert-danger alert-dismissible fade show small" role="alert">
-                                <strong>Book Request</strong>
-                                <?php echo $_SESSION['bookReqDeleteAlert'];
-                                unset($_SESSION['bookReqDeleteAlert']); ?>
+                                <strong>Feedback</strong>
+                                <?php echo $_SESSION['feedbackDeleteAlert'];
+                                unset($_SESSION['feedbackDeleteAlert']); ?>
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         <?php
@@ -171,7 +171,7 @@ if (!isset($_SESSION['adminEmail'])) {
                                         <td><?php echo $Message; ?></td>
                                         <td><?php echo $Time; ?></td>
                                         <td>
-                                            <a href="action/delete_book_request.php/?requestID=<?php echo $row['Request_Id']; ?>" class="btn btn-secondary btn-sm">Delete</a>
+                                            <a href="action/delete_feedback.php/?Id=<?php echo $row['Id']; ?>" class="btn btn-secondary btn-sm">Delete</a>
                                         </td>
                                     </tr>
                                 <?php
