@@ -30,7 +30,13 @@
             <li>
                 <a href="#">
                     <i class="bx bxs-user-detail"></i>
-                    <span class="text">Register Patient</span>
+                    <span class="text">Registered Patient</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bx-test-tube"></i>
+                    <span class="text">Covid Test</span>
                 </a>
             </li>
             <li>
@@ -41,8 +47,8 @@
             </li>
             <li>
                 <a href="#">
-                    <i class="bx bx-test-tube"></i>
-                    <span class="text">Test</span>
+                    <i class='bx bxs-chat'></i>
+                    <span class="text">Message and Feedback</span>
                 </a>
             </li>
         </ul>
@@ -103,10 +109,10 @@
                         echo date("l, F j, Y"); ?></>
                     </p>
                 </div>
-                <a href="#" class="btn-download">
+                <!-- <a href="#" class="btn-download">
                     <i class="bx bxs-cloud-download"></i>
-                    <span class="text">Generate Report</span>
-                </a>
+                    <span class="text">Message</span>
+                </a> -->
             </div>
 
             <ul class="box-info">
