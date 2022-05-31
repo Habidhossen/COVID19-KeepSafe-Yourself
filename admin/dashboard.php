@@ -46,7 +46,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="view_feedback.php">
                     <i class='bx bxs-chat'></i>
                     <span class="text">Message and Feedback</span>
                 </a>

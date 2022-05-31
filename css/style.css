@@ -194,6 +194,25 @@ User Dashboard Card
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
+/* banner section */
+.banner {
+  height: 600px;
+  display: flex;
+  align-items: center;
+}
+.banner-title {
+  font-size: 52px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #3e3e3e;
+}
+.banner-title span {
+  color: var(--color-green);
+}
+.banner-text {
+  margin: 20px 0;
+  color: #3e3e3e;
+}
 
 /* -------------------------------
 Responsiveness for Mobile Devices
