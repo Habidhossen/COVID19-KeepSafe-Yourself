@@ -213,6 +213,28 @@ User Dashboard Card
   margin: 20px 0;
   color: #3e3e3e;
 }
+/* covid info section */
+.covid-info-container {
+  background-color: #f2f2f2;
+  padding: 50px 40px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+.covid-info-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.covid-info-text {
+  font-size: 26px;
+  font-weight: 700;
+}
+.covid-info-footer {
+  margin-top: 60px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
 
 /* -------------------------------
 Responsiveness for Mobile Devices

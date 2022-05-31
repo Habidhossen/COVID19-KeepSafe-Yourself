@@ -68,3 +68,16 @@ switchMode.addEventListener("change", function () {
 /* ===================================
 Admin Dashboard Functionality ends here
 =================================== */
+
+/* ===================================
+GET CORONA UPDATE USING API (disease.sh)
+=================================== */
+
+const url = "https://disease.sh/v3/covid-19/countries/bangladesh";
+fetch(url)
+  .then((response) => response.json())
+  .then((data) => covidInfo(data));
+
+const covidInfo = (data) => {
+  document.getElementById("testData").innerText = data.continent;
+};

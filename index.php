@@ -27,6 +27,7 @@
   <!-- header ends here -->
 
   <main>
+    <!-- Banner section -->
     <section>
       <div class="container">
         <div class="row row row-cols-1 row-sm-cols-1 row-cols-md-2 row-cols-lg-2 banner">
@@ -42,8 +43,50 @@
       </div>
     </section>
 
+    <!-- Covid Info Section -->
     <section>
-      <div></div>
+      <div class="container covid-info-container">
+        <!-- <h1>Covid Update</h1> -->
+        <div class="row row row-cols-1 row-sm-cols-1 row-cols-md-4 row-cols-lg-4 text-center ">
+          <div class="col">
+            <h3 class="covid-info-title">Total Cases</h3>
+            <h5 id="totalCases" class="covid-info-text">0</h5>
+          </div>
+          <div class="col">
+            <h3 class="covid-info-title">Active Cases</h3>
+            <h5 id="activeCases" class="covid-info-text">0</h5>
+          </div>
+          <div class="col">
+            <h3 class="covid-info-title">Recovered</h3>
+            <h5 id="todayRecovered" class="covid-info-text" style="color: #26ae60;">0</h5>
+          </div>
+          <div class="col">
+            <h3 class="covid-info-title">Deaths</h3>
+            <h5 id="todayDeath" class="covid-info-text" style="color: #FF0000;">0</h5>
+          </div>
+        </div>
+        <span>
+          <p class="covid-info-footer">Bangladesh | Last update: <?php date_default_timezone_set("Asia/Dhaka");
+                                                                  echo date("l, F j, Y"); ?></p>
+        </span>
+      </div>
+
+      <!-- Using JavaScript for getting covid update by API -->
+      <script>
+        // GET CORONA UPDATE USING API (disease.sh)
+        const url = "https://disease.sh/v3/covid-19/countries/bangladesh";
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => covidInfo(data));
+        const covidInfo = (data) => {
+          document.getElementById("totalCases").innerText = data.todayCases;
+          document.getElementById("activeCases").innerText = data.active;
+          document.getElementById("todayRecovered").innerText = data.todayRecovered;
+          document.getElementById("todayDeath").innerText = data.todayDeaths;
+        };
+      </script>
+
+      </div>
     </section>
   </main>
 
