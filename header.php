@@ -15,7 +15,7 @@
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-flex justify-content-center" href="#"><span>
+                        <a class="nav-link d-flex justify-content-center" href="live_update.php"><span>
                                 <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_4eo2289h.json" background="transparent" speed="1" style="width: 26px; height: 26px" loop autoplay></lottie-player>
                             </span>
                             Live Update</a>

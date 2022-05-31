@@ -50,7 +50,7 @@
         <div class="row row row-cols-1 row-sm-cols-1 row-cols-md-4 row-cols-lg-4 text-center ">
           <div class="col">
             <h3 class="covid-info-title">Total Cases</h3>
-            <h5 id="totalCases" class="covid-info-text">0</h5>
+            <h5 id="todayCases" class="covid-info-text">0</h5>
           </div>
           <div class="col">
             <h3 class="covid-info-title">Active Cases</h3>
@@ -79,7 +79,7 @@
           .then((response) => response.json())
           .then((data) => covidInfo(data));
         const covidInfo = (data) => {
-          document.getElementById("totalCases").innerText = data.todayCases;
+          document.getElementById("todayCases").innerText = data.todayCases;
           document.getElementById("activeCases").innerText = data.active;
           document.getElementById("todayRecovered").innerText = data.todayRecovered;
           document.getElementById("todayDeath").innerText = data.todayDeaths;
