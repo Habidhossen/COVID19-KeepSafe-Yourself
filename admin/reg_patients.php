@@ -39,7 +39,7 @@ if (!isset($_SESSION['adminEmail'])) {
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="#">
                     <i class="bx bxs-user-detail"></i>
                     <span class="text">Registered Patient</span>
@@ -57,8 +57,8 @@ if (!isset($_SESSION['adminEmail'])) {
                     <span class="text">Report</span>
                 </a>
             </li>
-            <li class="active">
-                <a href="#">
+            <li>
+                <a href="reg_patients.php">
                     <i class='bx bxs-chat'></i>
                     <span class="text">Message and Feedback</span>
                 </a>
@@ -115,19 +115,19 @@ if (!isset($_SESSION['adminEmail'])) {
         <!-- MAIN -->
         <main>
             <div>
-                <h3 class="dashboard-item-title">Message and Feedback</h3>
+                <h3 class="dashboard-item-title">Registered Patient</h3>
                 <div>
                     <!-- ======= DataTable and all action starts here======= -->
                     <div class="container custom-datatable-card mb-4">
 
                         <!-- showing action alert! PHP -->
                         <?php
-                        if (isset($_SESSION['feedbackDeleteAlert'])) {
+                        if (isset($_SESSION['patientDeleteAlert'])) {
                         ?>
                             <div class="alert alert-danger alert-dismissible fade show small" role="alert">
-                                <strong>Feedback</strong>
-                                <?php echo $_SESSION['feedbackDeleteAlert'];
-                                unset($_SESSION['feedbackDeleteAlert']); ?>
+                                <strong>Patient</strong>
+                                <?php echo $_SESSION['patientDeleteAlert'];
+                                unset($_SESSION['patientDeleteAlert']); ?>
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         <?php
@@ -139,38 +139,53 @@ if (!isset($_SESSION['adminEmail'])) {
                                 <tr>
                                     <th scope="col">Patient Name</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Message</th>
-                                    <th scope="col">Time</th>
+                                    <th scope="col">Mobile</th>
+                                    <th scope="col">NID</th>
+                                    <th scope="col">DOB</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">City</th>
+                                    <th scope="col">Reg Date</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
 
-                                <!-- Showing users all information from database(feedback_tbl) -->
+                                <!-- Showing users all information from database(users_tbl) -->
                                 <?php
                                 // declare empty variable for storing users data
                                 $Name = "";
                                 $Email = "";
-                                $Message = "";
-                                $memberEmail = "";
-                                $requestDate = "";
+                                $Mobile = "";
+                                $NID = "";
+                                $DOB = "";
+                                $Address = "";
+                                $City = "";
+                                $RegDate = "";
 
-                                $sql = "SELECT * FROM `feedback_tbl`";
+                                $sql = "SELECT * FROM `user_tbl`";
                                 $query = mysqli_query($connection, $sql);
                                 while ($row = mysqli_fetch_assoc($query)) {
                                     $Name = $row['Name'];
                                     $Email = $row['Email'];
-                                    $Message = $row['Message'];
-                                    $Time = $row['Time_Slot'];
+                                    $Mobile = $row['Mobile'];
+                                    $NID = $row['NID'];
+                                    $DOB = $row['DOB'];
+                                    $Address = $row['Address'];
+                                    $City = $row['City'];
+                                    $RegDate = $row['Reg_Date'];
 
                                 ?>
                                     <tr>
                                         <td><?php echo $Name; ?></td>
                                         <td><?php echo $Email; ?></td>
-                                        <td><?php echo $Message; ?></td>
-                                        <td><?php echo $Time; ?></td>
+                                        <td><?php echo $Mobile; ?></td>
+                                        <td><?php echo $NID; ?></td>
+                                        <td><?php echo $DOB; ?></td>
+                                        <td><?php echo $Address; ?></td>
+                                        <td><?php echo $City; ?></td>
+                                        <td><?php echo $RegDate; ?></td>
                                         <td>
-                                            <a href="action/delete_feedback.php/?Id=<?php echo $row['Id']; ?>" class="btn btn-secondary btn-sm">Delete</a>
+                                            <a href="action/delete_patient.php/?Id=<?php echo $row['Id']; ?>" class="btn btn-danger btn-sm">Delete</a>
                                         </td>
                                     </tr>
                                 <?php

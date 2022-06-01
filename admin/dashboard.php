@@ -1,3 +1,10 @@
+<?php
+
+include '../db_connection.php';
+include 'functions.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +35,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="reg_patients.php">
                     <i class="bx bxs-user-detail"></i>
                     <span class="text">Registered Patient</span>
                 </a>
@@ -119,7 +126,7 @@
                 <li>
                     <i class="bx bxs-group"></i>
                     <span class="text">
-                        <h3>0</h3>
+                        <h3><?php echo userCountFunction(); ?></h3>
                         <p>Registered Patient</p>
                     </span>
                 </li>
