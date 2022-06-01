@@ -3,10 +3,43 @@
 include 'db_connection.php';
 session_start();
 
+// declare variable
+$patientName = '';
+$patientEmail = '';
+
+// get data from db
+$sql = "SELECT * FROM `user_tbl` WHERE Email = '$_SESSION[userEmail]'";
+$result = mysqli_query($connection, $sql);
+while ($row = mysqli_fetch_assoc($result)) {
+    $patientName = $row['Name'];
+    $patientId = $row['Id'];
+}
+
+// send feedback
+if (isset($_POST['applyTest'])) {
+
+    $testType = $_POST['testType'];
+    $patientName = $_POST['patientName'];
+    $patientId = $_POST['patientId'];
+
+    $sql = "INSERT INTO `covid_test_tbl`(`Test_Type`, `Patient_Name`, `Patient_Id`) VALUES ('$testType','$patientName','$patientId')";
+    $result = mysqli_query($connection, $sql);
+
+    if ($result) {
+        $_SESSION['covidTestAlert'] = 'Send Successfully!';
+        header("location: covid_test.php");
+        exit;
+    } else {
+        echo 'Something went wrong!';
+    }
+}
+
 // when User press backbutton after logout then he/she cannot access again this page without Login and this condition also use for security purpose.
 if (!isset($_SESSION['userEmail'])) {
     header("location: index.php");
 }
+
+
 
 ?>
 
@@ -35,14 +68,14 @@ if (!isset($_SESSION['userEmail'])) {
 
 
     <!-- ======= Header starts here ======= -->
-    <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0 border-bottom header-design">
+    <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0">
         <a href="user_dashboard.php" class="d-flex align-items-center mb-3 mb-lg-0 text-dark text-decoration-none">
             <span class="navbar-brand mb-0 h1 text-success"><b>Covid-19 Keepsafe Yourself</b></span>
         </a>
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
 
             <li><a class="nav-link px-2 link-success"><strong><?php /*set default timezone as Asia/Dhaka -->*/ date_default_timezone_set("Asia/Dhaka"); /*now print current day & date -->*/
-                                                                echo date("l, F j, Y"); ?></strong></a></li>
+                                                                echo "Today is " . date("l, F j, Y"); ?></strong></a></li>
 
         </ul>
         <div class="col-md-3 text-end">
@@ -63,52 +96,64 @@ if (!isset($_SESSION['userEmail'])) {
 
 
 
-    <!-- ======= Body Header starts here ======= -->
-    <header class="d-flex align-items-center justify-content-center">
+    <!-- ======= Send-Feedback starts here======= -->
+    <div class="send-feedback-card">
 
-        <div class="banner-container">
+        <h5 class="mb-3 fw-bold">Covid Test</h5>
+        <hr class="my-3">
 
-            <h3 class="mb-2 text-center text-white">Hey, <strong><?php echo $_SESSION['userName']; ?></strong></h3>
-            <p class="mb-4 text-center text-white">Welcome to your dashboard. Now you can access all the features of our application.<br />Keepsafe Yourself</p>
-
-            <div class="w-50 mx-auto">
-                <form action="search_book.php" method="POST">
-                    <div class="input-group">
-                        <input type="text" name="inputValue" class="form-control" placeholder="search report here" required>
-                        <button type="submit" name="search-btn" class="btn btn-outline-light mx-1">Search</button>
-                    </div>
-                </form>
+        <!-- PHP Coding for showing alert -->
+        <?php
+        if (isset($_SESSION['covidTestAlert'])) {
+        ?>
+            <div class="alert alert-success alert-dismissible fade show small" role="alert">
+                <strong>Covid Test Request</strong>
+                <?php echo $_SESSION['covidTestAlert'];
+                unset($_SESSION['covidTestAlert']); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
+        <?php
+        }
+        ?>
 
-        </div>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
-    </header>
-    <!-- ======= Body Header ends here ======= -->
-
-
-
-
-    <!-- ======= User-Dashboard starts here======= -->
-    <div class="container">
-        <div class="row row-cols-1 row-cols-md-3 mt-2 g-4 justify-content-center">
-            <div class="col">
-                <div class="card-body custom-user-card p-4 text-center">
-                    <h5 class="card-title text-success"><strong>Covid Test</strong></h5>
-                    <p class="card-text small mb-4">We are providing fast Covid-19 testing at Home</p>
-                    <a href="covid_test.php" class="register-btn">Continue</a>
+            <div class="form-group row align-items-center text-light mt-2">
+                <div>
+                    <input name="patientId" class="form-control alert-success" readonly value="<?php echo $patientId; ?>">
                 </div>
             </div>
 
-            <div class="col">
-                <div class="card-body custom-user-card p-4 text-center">
-                    <h5 class="card-title text-success"><strong>Message or Feedback</strong></h5>
-                    <p class="card-text small mb-4">If you have any questions, Please send us feedback!</p>
-                    <a href="send_feedback.php" class="register-btn">Continue</a>
+            <div class="form-group row align-items-center text-light mt-2">
+                <div>
+                    <input name="patientName" class="form-control alert-success" readonly value="<?php echo $patientName; ?>">
                 </div>
             </div>
-        </div>
+
+            <div class="form-group row align-items-center text-light mt-2">
+                <div>
+                    <select class="form-select" name="testType" id="testType" required>
+                        <!-- <option selected>Select Author</option> -->
+                        <option selected="true" disabled="disabled">Test Type</option>
+                        <option>PCR</option>
+                        <option>LFT</option>
+                        <option>Antibody</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <button name="applyTest" type="submit" class="w-100 register-btn">Submit</button>
+            </div>
+        </form>
+
     </div>
-    <!-- ======= User-Dashboard ends here======= -->
+    <!-- ======= Send-Feedback ends here======= -->
+
+
+
+
+
 
 
 
