@@ -28,37 +28,43 @@ if (!isset($_SESSION['adminEmail'])) {
 <body>
     <!-- SIDEBAR -->
     <section id="sidebar">
-        <a href="#" class="brand">
+        <a href="dashboard.php" class="brand">
             <i class="bx bxs-virus"></i>
             <span class="text">COVID-19</span>
         </a>
         <ul class="side-menu top">
-            <li>
+            <li class="active">
                 <a href="dashboard.php">
                     <i class="bx bxs-dashboard"></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li class="active">
-                <a href="#">
+            <li>
+                <a href="reg_patients.php">
                     <i class="bx bxs-user-detail"></i>
                     <span class="text">Registered Patient</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="covid_test.php">
                     <i class="bx bx-test-tube"></i>
                     <span class="text">Covid Test</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="report.php">
                     <i class="bx bxs-file-blank"></i>
                     <span class="text">Report</span>
                 </a>
             </li>
             <li>
-                <a href="reg_patients.php">
+                <a href="doctors_video.php">
+                    <i class='bx bxs-videos'></i>
+                    <span class="text">Doctor's Video</span>
+                </a>
+            </li>
+            <li>
+                <a href="view_feedback.php">
                     <i class='bx bxs-chat'></i>
                     <span class="text">Message and Feedback</span>
                 </a>

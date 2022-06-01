@@ -23,7 +23,7 @@ session_start();
 <body>
     <!-- SIDEBAR -->
     <section id="sidebar">
-        <a href="#" class="brand">
+        <a href="dashboard.php" class="brand">
             <i class="bx bxs-virus"></i>
             <span class="text">COVID-19</span>
         </a>
@@ -41,15 +41,21 @@ session_start();
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="covid_test.php">
                     <i class="bx bx-test-tube"></i>
                     <span class="text">Covid Test</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="report.php">
                     <i class="bx bxs-file-blank"></i>
                     <span class="text">Report</span>
+                </a>
+            </li>
+            <li>
+                <a href="doctors_video.php">
+                    <i class='bx bxs-videos'></i>
+                    <span class="text">Doctor's Video</span>
                 </a>
             </li>
             <li>
@@ -140,8 +146,8 @@ session_start();
                 <li>
                     <i class="bx bxs-report"></i>
                     <span class="text">
-                        <h3>0</h3>
-                        <p>Sample Test</p>
+                        <h3><?php echo patientFeedbackCount(); ?></h3>
+                        <p>Patient Feedback</p>
                     </span>
                 </li>
             </ul>

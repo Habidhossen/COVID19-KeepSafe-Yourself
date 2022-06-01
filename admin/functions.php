@@ -1,5 +1,5 @@
 <?php
-// count total users from database
+// count total users in database
 function userCountFunction()
 {
     include '../db_connection.php';
@@ -10,4 +10,17 @@ function userCountFunction()
         $userCount = $row['userCount'];
     }
     return ($userCount);
+}
+
+// count total message/feedback in database
+function patientFeedbackCount()
+{
+    include '../db_connection.php';
+    $feedbackCount = '';
+    $sql = "SELECT COUNT(*) AS feedbackCount FROM feedback_tbl";
+    $query = mysqli_query($connection, $sql);
+    while ($row = mysqli_fetch_assoc($query)) {
+        $feedbackCount = $row['feedbackCount'];
+    }
+    return ($feedbackCount);
 }
