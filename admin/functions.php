@@ -24,3 +24,16 @@ function patientFeedbackCount()
     }
     return ($feedbackCount);
 }
+
+// count total message/feedback in database
+function covidTestRequestCount()
+{
+    include '../db_connection.php';
+    $testRequestCount = '';
+    $sql = "SELECT COUNT(*) AS testRequestCount FROM covid_test_tbl";
+    $query = mysqli_query($connection, $sql);
+    while ($row = mysqli_fetch_assoc($query)) {
+        $testRequestCount = $row['testRequestCount'];
+    }
+    return ($testRequestCount);
+}
