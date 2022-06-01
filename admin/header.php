@@ -49,7 +49,7 @@
                         <a class="nav-link" href="../login.php">Login</a>
                     </li>
                 </ul>
-                <a class="register-btn" href="signup.php">Register</a>
+                <a class="register-btn" href="../signup.php">Register</a>
             </div>
         </div>
     </nav>

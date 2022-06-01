@@ -159,11 +159,11 @@ if (!isset($_SESSION['adminEmail'])) {
                                 $testType = "";
                                 $timeSlot = "";
 
-                                $sql = "SELECT * FROM `user_tbl`, `covid_test_tbl`";
+                                $sql = "SELECT * FROM covid_test_tbl INNER JOIN user_tbl ON covid_test_tbl.Patient_Id = user_tbl.Id";
                                 $query = mysqli_query($connection, $sql);
                                 while ($row = mysqli_fetch_assoc($query)) {
                                     $testId = $row['Test_Id'];
-                                    $patientId = $row['Id'];
+                                    $patientId = $row['Patient_Id'];
                                     $Name = $row['Name'];
                                     $Email = $row['Email'];
                                     $Mobile = $row['Mobile'];

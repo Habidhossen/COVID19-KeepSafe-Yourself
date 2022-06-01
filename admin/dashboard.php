@@ -140,7 +140,7 @@ session_start();
                     <i class="bx bxs-check-circle"></i>
                     <span class="text">
                         <h3><?php echo covidTestRequestCount(); ?></h3>
-                        <p>Total Test</p>
+                        <p>Test Request</p>
                     </span>
                 </li>
                 <li>

@@ -33,13 +33,13 @@ if (!isset($_SESSION['adminEmail'])) {
             <span class="text">COVID-19</span>
         </a>
         <ul class="side-menu top">
-            <li class="active">
+            <li>
                 <a href="dashboard.php">
                     <i class="bx bxs-dashboard"></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="reg_patients.php">
                     <i class="bx bxs-user-detail"></i>
                     <span class="text">Registered Patient</span>

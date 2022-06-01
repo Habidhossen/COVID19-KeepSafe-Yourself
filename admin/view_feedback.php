@@ -33,7 +33,7 @@ if (!isset($_SESSION['adminEmail'])) {
             <span class="text">COVID-19</span>
         </a>
         <ul class="side-menu top">
-            <li class="active">
+            <li>
                 <a href="dashboard.php">
                     <i class="bx bxs-dashboard"></i>
                     <span class="text">Dashboard</span>
@@ -63,7 +63,7 @@ if (!isset($_SESSION['adminEmail'])) {
                     <span class="text">Doctor's Video</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="view_feedback.php">
                     <i class='bx bxs-chat'></i>
                     <span class="text">Message and Feedback</span>
