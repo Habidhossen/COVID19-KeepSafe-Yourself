@@ -126,7 +126,7 @@ if (!isset($_SESSION['adminEmail'])) {
                         <h3 class="dashboard-item-title">Doctor's Video</h3>
                     </div>
                     <div>
-                        <a href="" class="btn btn-primary">
+                        <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addVideo">
                             <i class='bx bxs-plus-circle'></i>
                             <span class="text">Add Video</span>
                         </a>
@@ -172,7 +172,6 @@ if (!isset($_SESSION['adminEmail'])) {
                     <!-- ======= DataTable and all action ends here======= -->
                 </div>
             </div>
-
         </main>
         <!-- MAIN -->
     </section>
